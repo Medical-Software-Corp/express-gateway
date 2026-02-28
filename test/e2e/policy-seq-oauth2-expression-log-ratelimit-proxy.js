@@ -56,7 +56,7 @@ describe('E2E: oauth2, proxy, log, expression, rate-limit policies', () => {
               log: [
                 {
                   action: {
-                    // eslint-disable-next-line no-template-curly-in-string
+                     
                     message: '${req.url} ${egContext.req.method}'
                   }
                 },
@@ -65,7 +65,7 @@ describe('E2E: oauth2, proxy, log, expression, rate-limit policies', () => {
                     name: 'never'
                   },
                   action: {
-                    // eslint-disable-next-line no-template-curly-in-string
+                     
                     message: '${req.url} ${egContext.req.method}'
                   }
                 }
@@ -75,7 +75,7 @@ describe('E2E: oauth2, proxy, log, expression, rate-limit policies', () => {
               'rate-limit': {
                 action: {
                   max: 1,
-                  // eslint-disable-next-line no-template-curly-in-string
+                   
                   rateLimitBy: '${req.host}'
                 }
               }

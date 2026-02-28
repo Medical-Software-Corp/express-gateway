@@ -34,7 +34,7 @@
     "start": "node lib/index.js",
     "start:dev": "cross-env LOG_LEVEL=debug node lib/index.js",
     "lint": "eslint --fix .",
-    "pretest": "echo 'Skipping pretest lint for now'",
+    "pretest": "eslint .",
     "test": "npm run mocha:istanbul",
     "test:all": "cross-env EG_HTTP_PORT=0 EG_CONFIG_DIR=lib/config EG_DISABLE_CONFIG_WATCH=true mocha test",
     "test:unit": "cross-env EG_HTTP_PORT=0 EG_CONFIG_DIR=lib/config EG_DISABLE_CONFIG_WATCH=true mocha \"./test/{,!(e2e)/**/}*.test.js\"",

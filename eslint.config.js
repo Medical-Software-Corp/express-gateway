@@ -1,7 +1,7 @@
-const js = require('@eslint/js');
-const globals = require('globals');
+import js from '@eslint/js';
+import globals from 'globals';
 
-module.exports = [
+export default [
   js.configs.recommended,
   {
     ignores: [
@@ -15,7 +15,7 @@ module.exports = [
   {
     languageOptions: {
       ecmaVersion: 2020,
-      sourceType: 'commonjs',
+      sourceType: 'module',
       globals: {
         ...globals.node,
         ...globals.es6

@@ -1,11 +1,11 @@
-const { execFileSync } = require('child_process');
-const os = require('os');
-const fs = require('fs');
-const path = require('path');
-const findUp = require('find-up');
+import { execFileSync } from 'child_process';
+import os from 'os';
+import fs from 'fs';
+import path from 'path';
+import { findUpSync } from 'find-up';
 
-exports.executeInScope = env => {
-  let rootPath = findUp.sync('.yo-rc.json', {
+export const executeInScope = env => {
+  let rootPath = findUpSync('.yo-rc.json', {
     cwd: env.cwd
   });
 

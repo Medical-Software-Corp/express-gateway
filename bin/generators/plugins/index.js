@@ -1,6 +1,6 @@
-const eg = require('../../eg');
+import { Generator } from '../../eg.js';
 
-module.exports = class extends eg.Generator {
+export default class extends Generator {
   constructor (args, opts) {
     super(args, opts);
 
@@ -8,11 +8,10 @@ module.exports = class extends eg.Generator {
       command: ['plugins <command> [options]', 'plugin'],
       desc: 'Manage plugins',
       builder: yargs => yargs
-        .reset()
         .usage('Usage: $0 ' + process.argv[2] + ' <command> [options]')
         .command(this.createSubCommand('install'))
         .command(this.createSubCommand('configure'))
         .demandCommand()
     });
   }
-};
+}

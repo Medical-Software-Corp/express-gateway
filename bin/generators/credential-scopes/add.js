@@ -1,6 +1,6 @@
-const eg = require('../../eg');
-const chalk = require('chalk');
-module.exports = class extends eg.Generator {
+import { Generator } from '../../eg.js';
+import chalk from 'chalk';
+export default class extends Generator {
   constructor (args, opts) {
     super(args, opts);
 
@@ -43,4 +43,4 @@ module.exports = class extends eg.Generator {
     });
     return p;
   }
-};
+}

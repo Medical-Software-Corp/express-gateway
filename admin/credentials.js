@@ -1,4 +1,4 @@
-module.exports = function (client) {
+export default function (client) {
   const baseUrl = '/credentials/';
   return {
     create (consumerId, type, credential) {
@@ -64,4 +64,4 @@ module.exports = function (client) {
     if (!credentialId) throw new Error('Credential Id is required');
     if (!type) throw new Error('Type is required');
   }
-};
+}

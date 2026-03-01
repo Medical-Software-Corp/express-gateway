@@ -1,4 +1,4 @@
-const eg = require('../../eg');
+import { Generator } from '../../eg.js';
 
 const filtersTable = {
   active: (consumer) => consumer.isActive,
@@ -7,7 +7,7 @@ const filtersTable = {
 
 const filterTypes = Object.keys(filtersTable);
 
-module.exports = class extends eg.Generator {
+export default class extends Generator {
   constructor (args, opts) {
     super(args, opts);
 
@@ -63,4 +63,4 @@ module.exports = class extends eg.Generator {
       })
       .catch(err => this.log.error(err.message));
   }
-};
+}

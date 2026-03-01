@@ -1,4 +1,4 @@
-module.exports = function (client) {
+export default function (client) {
   const baseUrl = '/scopes/';
   return {
     create (scopes) {
@@ -24,4 +24,4 @@ module.exports = function (client) {
     }
 
   };
-};
+}

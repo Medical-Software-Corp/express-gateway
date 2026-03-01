@@ -1,11 +1,17 @@
 /* eslint-disable no-console */
 
-const chalk = require('chalk');
-const path = require('path');
-const os = require('os');
-const eg = require('../../eg');
+import chalk from 'chalk';
+import path from 'path';
+import os from 'os';
+import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
+import { Generator } from '../../eg.js';
 
-module.exports = class extends eg.Generator {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const require = createRequire(import.meta.url);
+
+export default class extends Generator {
   constructor (args, opts) {
     super(args, opts);
 
@@ -142,4 +148,4 @@ module.exports = class extends eg.Generator {
     console.log(`To receive additional support, visit our ${chalk.hex('D32E59')('Gitter channel')}:
                   ${chalk.green('https://gitter.im/ExpressGateway/express-gateway')}`);
   }
-};
+}

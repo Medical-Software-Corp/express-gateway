@@ -1,4 +1,4 @@
-module.exports = function (client) {
+export default function (client) {
   const baseUrl = '/tokens/';
   return {
     revoke (token) {
@@ -7,4 +7,4 @@ module.exports = function (client) {
         .then(res => res.body);
     }
   };
-};
+}

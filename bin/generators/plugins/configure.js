@@ -1,9 +1,11 @@
-const path = require('path');
-const parentRequire = require('parent-require');
-const eg = require('../../eg');
-const PluginInstaller = require('../../../lib/plugin-installer');
+import path from 'path';
+import { createRequire } from 'module';
+import { Generator } from '../../eg.js';
+import PluginInstaller from '../../../lib/plugin-installer.js';
 
-module.exports = class extends eg.Generator {
+const require = createRequire(import.meta.url);
+
+export default class extends Generator {
   constructor (args, opts) {
     super(args, opts);
 
@@ -145,7 +147,13 @@ module.exports = class extends eg.Generator {
     try {
       pluginManifest = require(pluginPath);
     } catch (_) {
-      pluginManifest = parentRequire(pluginPath);
+      // Try parent-require as fallback
+      try {
+        const parentRequire = require('parent-require');
+        pluginManifest = parentRequire(pluginPath);
+      } catch (err) {
+        throw new Error(`Could not load plugin: ${packageName}`);
+      }
     }
 
     return pluginManifest;
@@ -158,4 +166,4 @@ module.exports = class extends eg.Generator {
 
     this.stdout('Plugin configured!');
   }
-};
+}

@@ -1,5 +1,5 @@
-const eg = require('../../eg');
-module.exports = class extends eg.Generator {
+import { Generator } from '../../eg.js';
+export default class extends Generator {
   constructor (args, opts) {
     super(args, opts);
 
@@ -21,4 +21,4 @@ module.exports = class extends eg.Generator {
         this.log.error(err.message);
       });
   }
-};
+}

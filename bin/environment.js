@@ -1,11 +1,15 @@
-const fs = require('fs');
-const path = require('path');
-const yargs = require('yargs');
-const yeoman = require('yeoman-environment');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import yargs from 'yargs';
+import yeoman from 'yeoman-environment';
 
-const { executeInScope } = require('./execution-scope');
+import { executeInScope } from './execution-scope.js';
 
-exports.bootstrap = (eg, adapter) => {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export const bootstrap = async (eg, adapter) => {
   const env = yeoman.createEnv();
 
   if (executeInScope(env)) {
@@ -18,7 +22,7 @@ exports.bootstrap = (eg, adapter) => {
     env.adapter = adapter;
   }
 
-  const program = yargs;
+  const program = yargs();
 
   const generatorsPath = path.join(__dirname, 'generators');
 
@@ -38,7 +42,8 @@ exports.bootstrap = (eg, adapter) => {
       return stat.isDirectory();
     });
 
-  dirs.forEach(dir => {
+  // Use dynamic imports to load generators
+  for (const dir of dirs) {
     const directoryPath = path.join(generatorsPath, dir);
 
     const files = fs
@@ -52,12 +57,15 @@ exports.bootstrap = (eg, adapter) => {
         return stat.isFile();
       });
 
-    files.forEach(file => {
+    for (const file of files) {
       if (file === 'index.js') {
         const namespace = `${prefix}:${dir}`;
-        commands.push({ namespace: namespace, path: directoryPath });
-        env.register(directoryPath, namespace);
-        return;
+        const filePath = path.join(directoryPath, file);
+        const fileUrl = new URL('file://' + filePath.replace(/\\/g, '/'));
+        const module = await import(fileUrl.href);
+        commands.push({ namespace: namespace, path: directoryPath, Generator: module.default });
+        env.registerStub(module.default, namespace);
+        continue;
       }
 
       const filePath = path.join(directoryPath, file);
@@ -67,14 +75,17 @@ exports.bootstrap = (eg, adapter) => {
         subCommands[dir] = [];
       }
 
+      const fileUrl = new URL('file://' + filePath.replace(/\\/g, '/'));
+      const module = await import(fileUrl.href);
       subCommands[dir].push({
         namespace: namespace,
-        path: filePath
+        path: filePath,
+        Generator: module.default
       });
 
-      env.register(filePath, namespace);
-    });
-  });
+      env.registerStub(module.default, namespace);
+    }
+  }
 
   const commandAliases = {};
   // Ex: {
@@ -143,7 +154,7 @@ exports.bootstrap = (eg, adapter) => {
     .recommendCommands()
     .strict()
     .alias('h', 'help')
-    .wrap(Math.min(90, yargs.terminalWidth()));
+    .wrap(Math.min(90, program.terminalWidth()));
 
   return { program, env };
 };

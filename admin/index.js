@@ -1,19 +1,31 @@
 // TODO: this is EG admin client; internal utility
-module.exports = function (options) {
-  const client = require('./client')(options);
+import createClient from './client.js';
+import createUsers from './users.js';
+import createApps from './apps.js';
+import createScopes from './scopes.js';
+import createCredentials from './credentials.js';
+import createTokens from './tokens.js';
+import createPolicies from './config/policies.js';
+import createPipelines from './config/pipelines.js';
+import createApiEndpoints from './config/api-endpoints.js';
+import createServiceEndpoints from './config/service-endpoints.js';
+import createSchemas from './config/schemas.js';
+
+export default function (options) {
+  const client = createClient(options);
 
   return {
-    users: require('./users')(client),
-    apps: require('./apps')(client),
-    scopes: require('./scopes')(client),
-    credentials: require('./credentials')(client),
-    tokens: require('./tokens')(client),
+    users: createUsers(client),
+    apps: createApps(client),
+    scopes: createScopes(client),
+    credentials: createCredentials(client),
+    tokens: createTokens(client),
     config: {
-      policies: require('./config/policies')(client),
-      pipelines: require('./config/pipelines')(client),
-      apiEndpoints: require('./config/api-endpoints')(client),
-      serviceEndpoints: require('./config/service-endpoints')(client),
-      schemas: require('./config/schemas')(client)
+      policies: createPolicies(client),
+      pipelines: createPipelines(client),
+      apiEndpoints: createApiEndpoints(client),
+      serviceEndpoints: createServiceEndpoints(client),
+      schemas: createSchemas(client)
     }
   };
-};
+}

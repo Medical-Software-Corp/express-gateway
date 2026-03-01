@@ -1,7 +1,8 @@
-const should = require('should');
-const idGen = require('uuid62');
-const adminHelper = require('../../common/admin-helper')();
-const environment = require('../../fixtures/cli/environment');
+import should from 'should';
+import idGen from 'uuid62';
+import adminHelperFactory from '../../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
+import environment from '../../fixtures/cli/environment.js';
 const namespace = 'express-gateway:credentials:list';
 
 describe('eg credentials list', () => {

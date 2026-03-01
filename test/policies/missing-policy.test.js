@@ -1,7 +1,7 @@
-const should = require('should');
+import should from 'should';
 
-const testHelper = require('../common/routing.helper');
-const config = require('../../lib/config');
+import testHelper from '../common/routing.helper.js';
+import config from '../../lib/config.js';
 const originalGatewayConfig = config.gatewayConfig;
 
 describe('Missing policies', () => {

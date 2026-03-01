@@ -1,8 +1,8 @@
-const testHelper = require('../../common/routing.helper');
-const Config = require('../../../lib/config/config');
-const fakeSessionProvider = require('../../common/session-provider');
+import testHelper from '../../common/routing.helper.js';
+import Config from '../../../lib/config/config.js';
+import fakeSessionProvider from '../../common/session-provider.js';
 const config = new Config();
-const assert = require('assert');
+import assert from 'assert';
 
 describe('Functional Tests oAuth2.0 Policy', () => {
   const helper = testHelper();

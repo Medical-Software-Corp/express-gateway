@@ -1,5 +1,5 @@
-const testHelper = require('../common/routing.helper');
-const Config = require('../../lib/config/config');
+import testHelper from '../common/routing.helper.js';
+import Config from '../../lib/config/config.js';
 describe('path resolution for specific and general domains', () => {
   const config = new Config();
   [undefined, 'example.com', 'sub.demo.com'].forEach(host => {

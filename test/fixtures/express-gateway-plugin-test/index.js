@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   version: '1.0.0',
   description: 'A test plugin',
   init: function (pluginContext) {

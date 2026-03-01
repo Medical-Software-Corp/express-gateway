@@ -1,8 +1,9 @@
-const assert = require('assert');
-const environment = require('../../fixtures/cli/environment');
-const adminHelper = require('../../common/admin-helper')();
+import assert from 'assert';
+import environment from '../../fixtures/cli/environment.js';
+import adminHelperFactory from '../../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
 const namespace = 'express-gateway:apps:remove';
-const idGen = require('uuid62');
+import idGen from 'uuid62';
 
 describe('eg apps remove', () => {
   let program, env, user, app1, app2;

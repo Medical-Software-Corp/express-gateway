@@ -1,6 +1,7 @@
-const should = require('should');
-const idGen = require('uuid62');
-const adminHelper = require('../common/admin-helper')();
+import should from 'should';
+import idGen from 'uuid62';
+import adminHelperFactory from '../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
 const username = idGen.v4();
 
 describe('REST: Applications', () => {

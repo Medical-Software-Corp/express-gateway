@@ -1,5 +1,5 @@
-const testHelper = require('../../common/routing.helper');
-const Config = require('../../../lib/config/config');
+import testHelper from '../../common/routing.helper.js';
+import Config from '../../../lib/config/config.js';
 const helper = testHelper();
 
 describe('@terminate', () => {

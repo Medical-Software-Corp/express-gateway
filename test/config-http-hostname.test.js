@@ -1,9 +1,9 @@
-const supertest = require('supertest');
-const should = require('should');
-const dns = require('dns');
-const os = require('os');
-const config = require('../lib/config');
-const testHelper = require('./common/routing.helper');
+import supertest from 'supertest';
+import should from 'should';
+import dns from 'dns';
+import os from 'os';
+import config from '../lib/config.js';
+import testHelper from './common/routing.helper.js';
 
 describe('hostname', () => {
   let helper, address;

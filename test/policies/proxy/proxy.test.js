@@ -1,13 +1,20 @@
-const path = require('path');
-const fs = require('fs');
-const request = require('supertest');
-const should = require('should');
-const sinon = require('sinon');
+import path from 'path';
+import fs from 'fs';
+import request from 'supertest';
+import should from 'should';
+import sinon from 'sinon';
+import { Readable } from 'stream';
 
-const config = require('../../../lib/config');
-const gateway = require('../../../lib/gateway');
-const logger = require('../../../lib/logger').policy;
-const { findOpenPortNumbers } = require('../../common/server-helper');
+import config from '../../../lib/config.js';
+import gateway from '../../../lib/gateway.js';
+import loggerModule from '../../../lib/logger/index.js';
+const logger = loggerModule.policy;
+import { findOpenPortNumbers } from '../../common/server-helper.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const originalGatewayConfig = config.gatewayConfig;
 
@@ -32,8 +39,8 @@ describe('@proxy policy', () => {
 
   before('start HTTP server', (done) => {
     findOpenPortNumbers(1).then((ports) => {
-      const https = require('https');
-      const express = require('express');
+      import https from 'https';
+      import express from 'express';
       const expressApp = express();
 
       backendServerPort = ports[0];
@@ -171,7 +178,7 @@ describe('@proxy policy', () => {
           policies: [{
             name: 'change-stream',
             policy: () => {
-              const s = new (require('stream').Readable)();
+              const s = new Readable();
               const payload = JSON.stringify({ payload: 'value1', testField: 'value2' });
               s.push(payload);
               s.push(null);

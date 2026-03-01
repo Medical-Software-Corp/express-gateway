@@ -1,11 +1,12 @@
-const should = require('should');
-const adminHelper = require('../common/admin-helper')();
-const Config = require('../../lib/config/config');
-const os = require('os');
-const fs = require('fs');
-const path = require('path');
-const idGen = require('uuid62');
-const yaml = require('js-yaml');
+import should from 'should';
+import adminHelperFactory from '../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
+import Config from '../../lib/config/config.js';
+import os from 'os';
+import fs from 'fs';
+import path from 'path';
+import idGen from 'uuid62';
+import yaml from 'js-yaml';
 
 describe('REST: pipelines', () => {
   let config;

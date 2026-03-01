@@ -1,19 +1,19 @@
-const idGen = require('uuid62');
-const session = require('supertest-session');
-const qs = require('querystring');
-const url = require('url');
-const express = require('express');
-const sinon = require('sinon');
-const should = require('should');
+import idGen from 'uuid62';
+import session from 'supertest-session';
+import qs from 'querystring';
+import url from 'url';
+import express from 'express';
+import sinon from 'sinon';
+import should from 'should';
 
-const services = require('../../../lib/services/index');
+import services from '../../../lib/services/index.js';
 const credentialService = services.credential;
 const userService = services.user;
 const applicationService = services.application;
-const db = require('../../../lib/db');
+import db from '../../../lib/db.js';
 
-const testHelper = require('../../common/routing.helper');
-const config = require('../../../lib/config');
+import testHelper from '../../common/routing.helper.js';
+import config from '../../../lib/config.js';
 const originalGatewayConfig = config.gatewayConfig;
 let request;
 describe('Request @headers @proxy downstream @auth @key-auth', () => {

@@ -1,10 +1,10 @@
-const should = require('should');
-const services = require('../../lib/services');
+import should from 'should';
+import services from '../../lib/services.js';
 const credentialService = services.credential;
 const userService = services.user;
 const tokenService = services.token;
 const authService = services.auth;
-const db = require('../../lib/db');
+import db from '../../lib/db.js';
 
 describe('Auth tests', function () {
   let user, userFromDb;

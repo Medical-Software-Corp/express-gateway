@@ -1,7 +1,8 @@
-const assert = require('assert');
-const adminHelper = require('../../common/admin-helper')();
-const environment = require('../../fixtures/cli/environment');
-const idGen = require('uuid62');
+import assert from 'assert';
+import adminHelperFactory from '../../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
+import environment from '../../fixtures/cli/environment.js';
+import idGen from 'uuid62';
 const namespace = 'express-gateway:users:remove';
 
 describe('eg users remove', () => {

@@ -1,10 +1,11 @@
-const assert = require('assert');
-const adminHelper = require('../../common/admin-helper')();
-const idGen = require('uuid62');
-const environment = require('../../fixtures/cli/environment');
+import assert from 'assert';
+import adminHelperFactory from '../../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
+import idGen from 'uuid62';
+import environment from '../../fixtures/cli/environment.js';
 const namespace = 'express-gateway:users:list';
-const superagent = require('superagent');
-const sinon = require('sinon');
+import superagent from 'superagent';
+import sinon from 'sinon';
 
 const generateUser = () => adminHelper.admin.users.create({
   username: idGen.v4(),

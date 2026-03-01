@@ -7,14 +7,14 @@ class Provider {
   on () {}
 }
 
-module.exports = function (session) {
+export default function (session) {
   return Provider;
-};
+}
 
-module.exports.getOptions = () => {
+export const getOptions = () => {
   return data;
 };
 
-module.exports.reset = () => {
+export const reset = () => {
   data = null;
 };

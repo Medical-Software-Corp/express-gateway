@@ -1,9 +1,9 @@
-const httpProxy = require('http-proxy');
-const http = require('http');
-const assert = require('assert');
-const request = require('superagent');
-const gwHelper = require('../common/gateway.helper');
-const cliHelper = require('../common/cli.helper');
+import httpProxy from 'http-proxy';
+import http from 'http';
+import assert from 'assert';
+import request from 'superagent';
+import gwHelper from '../common/gateway.helper.js';
+import cliHelper from '../common/cli.helper.js';
 
 ['HTTP_PROXY', 'http_proxy'].forEach((envVariable) => {
   describe('@e2e @proxy through proxy', () => {

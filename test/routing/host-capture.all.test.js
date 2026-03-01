@@ -1,5 +1,5 @@
-const testHelper = require('../common/routing.helper');
-const config = require('../../lib/config');
+import testHelper from '../common/routing.helper.js';
+import config from '../../lib/config.js';
 
 // there are several configuration ways to listen to all hosts
 ['*', '', undefined].forEach(hostBind => {

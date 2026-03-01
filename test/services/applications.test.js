@@ -1,11 +1,11 @@
-const should = require('should');
-const uuid = require('uuid');
-const config = require('../../lib/config');
-const schemas = require('../../lib/schemas');
-const services = require('../../lib/services');
+import should from 'should';
+import { v4 as uuidv4 } from 'uuid';
+import config from '../../lib/config.js';
+import schemas from '../../lib/schemas.js';
+import services from '../../lib/services.js';
 const applicationService = services.application;
 const userService = services.user;
-const db = require('../../lib/db');
+import db from '../../lib/db.js';
 
 describe('Application service tests', function () {
   let originalAppModelConfig;
@@ -470,9 +470,9 @@ describe('Application service tests', function () {
 
 function createRandomUserObject () {
   return {
-    username: uuid.v4(),
-    firstname: uuid.v4(),
-    lastname: uuid.v4(),
-    email: `${uuid.v4()}@hello.it`
+    username: uuidv4(),
+    firstname: uuidv4(),
+    lastname: uuidv4(),
+    email: `${uuidv4()}@hello.it`
   };
 }

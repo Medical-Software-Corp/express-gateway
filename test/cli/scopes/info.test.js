@@ -1,7 +1,8 @@
-const assert = require('assert');
-const adminHelper = require('../../common/admin-helper')();
-const idGen = require('uuid62');
-const environment = require('../../fixtures/cli/environment');
+import assert from 'assert';
+import adminHelperFactory from '../../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
+import idGen from 'uuid62';
+import environment from '../../fixtures/cli/environment.js';
 const namespace = 'express-gateway:scopes:info';
 
 describe('eg scopes info', () => {

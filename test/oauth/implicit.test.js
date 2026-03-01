@@ -1,11 +1,11 @@
-const session = require('supertest-session');
-const should = require('should');
-const url = require('url');
-const qs = require('querystring');
-const app = require('./bootstrap');
+import session from 'supertest-session';
+import should from 'should';
+import url from 'url';
+import qs from 'querystring';
+import app from './bootstrap.js';
 
-const services = require('../../lib/services');
-const { createOAuthScenario } = require('./testUtils');
+import services from '../../lib/services.js';
+import { createOAuthScenario } from './testUtils.js';
 const tokenService = services.token;
 
 describe('Functional Test Implicit grant', function () {

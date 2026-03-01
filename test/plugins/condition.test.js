@@ -1,9 +1,9 @@
-const should = require('should');
+import should from 'should';
 
-const { conditions, init } = require('../../lib/conditions');
-const gateway = require('../../lib/gateway');
-const Config = require('../../lib/config/config');
-const express = require('express');
+import { conditions, init } from '../../lib/conditions.js';
+import gateway from '../../lib/gateway.js';
+import Config from '../../lib/config/config.js';
+import express from 'express';
 
 const config = new Config();
 config.gatewayConfig = {

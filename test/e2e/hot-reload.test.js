@@ -1,16 +1,25 @@
-const { fork } = require('child_process');
-const fs = require('fs');
-const path = require('path');
+import { fork } from 'child_process';
+import fs from 'fs';
+import path from 'path';
 
-const should = require('should');
-const chokidar = require('chokidar');
-const cpr = require('cpr');
-const request = require('superagent');
-const rimraf = require('rimraf');
-const tmp = require('tmp');
-const yaml = require('js-yaml');
+import should from 'should';
+import chokidar from 'chokidar';
+import cpr from 'cpr';
+import request from 'superagent';
+import rimraf from 'rimraf';
+import tmp from 'tmp';
+import yaml from 'js-yaml';
 
-const { findOpenPortNumbers } = require('../common/server-helper');
+import { findOpenPortNumbers } from '../common/server-helper.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = dirname(__filename);
 
 const GATEWAY_STARTUP_WAIT_TIME = 5000;
 const TEST_TIMEOUT = 10000;

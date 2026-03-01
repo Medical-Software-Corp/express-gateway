@@ -1,10 +1,11 @@
-const should = require('should');
-const uuid = require('uuid');
-const redisConfig = require('../../lib/config').systemConfig.db.redis;
-const services = require('../../lib/services');
+import should from 'should';
+import { v4 as uuidv4 } from 'uuid';
+import config from '../../lib/config/index.js';
+const redisConfig = config.systemConfig.db.redis;
+import services from '../../lib/services.js';
 const userService = services.user;
 const credentialService = services.credential;
-const db = require('../../lib/db');
+import db from '../../lib/db.js';
 
 describe('User service tests', () => {
   describe('Insert tests', () => {
@@ -108,7 +109,7 @@ describe('User service tests', () => {
     });
 
     it('should not get user by invalid userId', () => {
-      return userService.get(uuid.v4())
+      return userService.get(uuidv4())
         .then(function (user) {
           should.exist(user);
           user.should.eql(false);
@@ -327,9 +328,9 @@ describe('User service tests', () => {
 
 function createRandomUserObject() {
   return {
-    username: uuid.v4(),
-    firstname: uuid.v4(),
-    lastname: uuid.v4(),
-    email: `${uuid.v4()}@testmail.it`
+    username: uuidv4(),
+    firstname: uuidv4(),
+    lastname: uuidv4(),
+    email: `${uuidv4()}@testmail.it`
   };
 }

@@ -1,10 +1,10 @@
-const request = require('supertest');
-const should = require('should');
-const gateway = require('../../lib/gateway');
-const config = require('../../lib/config');
-let policies = require('../../lib/policies');
+import request from 'supertest';
+import should from 'should';
+import gateway from '../../lib/gateway.js';
+import config from '../../lib/config.js';
+import policies from '../../lib/policies.js';
 
-module.exports = function () {
+export default function () {
   let app, httpsApp, originalGatewayConfig, originalPolicies;
   function prepareScenario (testCase) {
     let testScenario = request(app);

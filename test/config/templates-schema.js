@@ -1,10 +1,15 @@
-const fs = require('fs');
-const path = require('path');
-const jsYaml = require('js-yaml');
-const should = require('should');
+import fs from 'fs';
+import path from 'path';
+import jsYaml from 'js-yaml';
+import should from 'should';
 // eslint-disable-next-line no-unused-vars
-const Config = require('../../lib/config');
-const schema = require('../../lib/schemas');
+import Config from '../../lib/config.js';
+import schema from '../../lib/schemas.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 describe('EG templates schema validation', () => {
   ['basic', 'getting-started'].forEach((template) => {

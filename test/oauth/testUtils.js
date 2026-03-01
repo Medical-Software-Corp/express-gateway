@@ -1,14 +1,14 @@
-const should = require('should');
-const uuid = require('uuid62');
+import should from 'should';
+import uuid from 'uuid62';
 
-const services = require('../../lib/services');
-const db = require('../../lib/db');
+import services from '../../lib/services.js';
+import db from '../../lib/db.js';
 
 const credentialService = services.credential;
 const userService = services.user;
 const applicationService = services.application;
 
-module.exports = {
+export default {
   checkTokenResponse: (response, additionalProps = []) => {
     should(response).have.properties('access_token', 'expires_in', ...additionalProps);
     should(response.token_type).be.eql('Bearer');

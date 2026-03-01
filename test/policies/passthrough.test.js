@@ -1,13 +1,13 @@
-const idGen = require('uuid62');
-const request = require('supertest');
+import idGen from 'uuid62';
+import request from 'supertest';
 
-const services = require('../../lib/services');
+import services from '../../lib/services.js';
 const credentialService = services.credential;
 const userService = services.user;
-const serverHelper = require('../common/server-helper');
-const db = require('../../lib/db');
-const testHelper = require('../common/routing.helper');
-const config = require('../../lib/config');
+import serverHelper from '../common/server-helper.js';
+import db from '../../lib/db.js';
+import testHelper from '../common/routing.helper.js';
+import config from '../../lib/config.js';
 const originalGatewayConfig = config.gatewayConfig;
 let dbuser1;
 describe('Functional Tests @auth Policies @passthrough', () => {

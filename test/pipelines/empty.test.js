@@ -1,6 +1,6 @@
-const supertest = require('supertest');
-const testHelper = require('../common/routing.helper');
-const config = require('../../lib/config');
+import supertest from 'supertest';
+import testHelper from '../common/routing.helper.js';
+import config from '../../lib/config.js';
 
 describe('Pipelines', () => {
   describe('send a request that cannot be handled by any pipeline', () => {

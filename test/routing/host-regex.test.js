@@ -1,5 +1,5 @@
-const testHelper = require('../common/routing.helper');
-const config = require('../../lib/config');
+import testHelper from '../common/routing.helper.js';
+import config from '../../lib/config.js';
 
 describe("When configured to capture hostRegex: '[a-z]{3}.parrots.com'", () => {
   let originalGatewayConfig;

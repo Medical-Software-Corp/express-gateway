@@ -1,15 +1,15 @@
-const url = require('url');
-const should = require('should');
-const express = require('express');
-const request = require('superagent');
-const puppeteer = require('puppeteer');
+import url from 'url';
+import should from 'should';
+import express from 'express';
+import request from 'superagent';
+import puppeteer from 'puppeteer';
 
-const cliHelper = require('../common/cli.helper');
-const gwHelper = require('../common/gateway.helper');
+import cliHelper from '../common/cli.helper.js';
+import gwHelper from '../common/gateway.helper.js';
 
 let tempPath;
 
-const { findOpenPortNumbers } = require('../common/server-helper');
+import { findOpenPortNumbers } from '../common/server-helper.js';
 
 describe('oauth2 authorization code grant type', () => {
   const username = 'kate';

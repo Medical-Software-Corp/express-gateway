@@ -1,7 +1,7 @@
-const should = require('should');
-const services = require('../../../lib/services');
+import should from 'should';
+import services from '../../../lib/services.js';
 const credentialService = services.credential;
-const db = require('../../../lib/db');
+import db from '../../../lib/db.js';
 
 describe('Scope tests', function () {
   before(() => db.flushdb());

@@ -1,6 +1,6 @@
-const testHelper = require('../../common/routing.helper');
-const config = require('../../../lib/config');
-const db = require('../../../lib/db');
+import testHelper from '../../common/routing.helper.js';
+import config from '../../../lib/config.js';
+import db from '../../../lib/db.js';
 const originalGatewayConfig = config.gatewayConfig;
 
 describe('rate-limit policy only for eg-test-domain.io host', () => {

@@ -1,12 +1,20 @@
-const { exec } = require('child_process');
-const path = require('path');
-const util = require('util');
-const dir = util.promisify(require('tmp').dir);
-const _cpr = util.promisify(require('cpr'));
+import { exec } from 'child_process';
+import path from 'path';
+import util from 'util';
+import tmp from 'tmp';
+import cpr from 'cpr';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const dir = util.promisify(tmp.dir);
+const _cpr = util.promisify(cpr);
 
 const modulePath = path.resolve(__dirname, '..', '..', 'bin', 'index.js');
 
-module.exports.bootstrapFolder = function () {
+export const bootstrapFolder = function () {
   return dir()
     .then(tempDir => Promise.all([
       tempDir,
@@ -20,7 +28,7 @@ module.exports.bootstrapFolder = function () {
     }));
 };
 
-module.exports.runCLICommand = function ({ adminPort, adminUrl, configDirectoryPath, cliArgs, cliExecOptions }) {
+export const runCLICommand = function ({ adminPort, adminUrl, configDirectoryPath, cliArgs, cliExecOptions }) {
   // TODO: it should not depend on configFolder, API only, now the last dependency is models
   cliExecOptions = Object.assign({
     env: process.env

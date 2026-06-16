@@ -1,0 +1,9 @@
+# Configuration for the GitHub issue template chooser.
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
+#
+# version 0.1 16-6-2026
+
+# Require contributors to pick a template (Bug report / Feature request)
+# rather than opening a blank issue.
+blank_issues_enabled: false
+

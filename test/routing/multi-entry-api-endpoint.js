@@ -1,5 +1,5 @@
-const testHelper = require('../common/routing.helper');
-const config = require('../../lib/config');
+import testHelper from '../common/routing.helper.js';
+import config from '../../lib/config.js';
 
 describe('Multi entry api endpoint with default host', () => {
   const helper = testHelper();

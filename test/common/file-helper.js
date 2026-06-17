@@ -1,8 +1,8 @@
-const fs = require('fs');
-const yaml = require('js-yaml');
+import fs from 'fs';
+import yaml from 'js-yaml';
 
 // this module is to abstract saving files in json/yml format
-module.exports = {
+export default {
   read: function (path, type) {
     const text = fs.readFileSync(path);
     if (type === 'json') { return JSON.parse(text); }

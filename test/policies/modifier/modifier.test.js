@@ -1,8 +1,8 @@
-const request = require('supertest');
-const should = require('should');
-const config = require('../../../lib/config');
-const gateway = require('../../../lib/gateway');
-const { findOpenPortNumbers } = require('../../common/server-helper');
+import request from 'supertest';
+import should from 'should';
+import config from '../../../lib/config.js';
+import gateway from '../../../lib/gateway.js';
+import { findOpenPortNumbers } from '../../common/server-helper.js';
 
 const originalGatewayConfig = config.gatewayConfig;
 
@@ -13,7 +13,7 @@ describe('@modifier policy', () => {
 
   before('start HTTP server', (done) => {
     findOpenPortNumbers(1).then((ports) => {
-      const express = require('express');
+      import express from 'express';
       const expressApp = express();
 
       backendServerPort = ports[0];

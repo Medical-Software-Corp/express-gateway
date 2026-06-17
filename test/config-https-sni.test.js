@@ -1,9 +1,14 @@
-const assert = require('assert');
-const fs = require('fs');
-const tls = require('tls');
-const path = require('path');
-const config = require('../lib/config');
-const testHelper = require('./common/routing.helper');
+import assert from 'assert';
+import fs from 'fs';
+import tls from 'tls';
+import path from 'path';
+import config from '../lib/config.js';
+import testHelper from './common/routing.helper.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const testCases = [{
   clientOptions: {

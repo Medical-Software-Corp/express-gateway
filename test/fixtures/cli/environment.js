@@ -1,21 +1,26 @@
-const { TestAdapter } = require('yeoman-test/lib/adapter');
-const environment = require('../../../bin/environment');
+import { TestAdapter } from 'yeoman-test/lib/adapter.js';
+import { bootstrap as environmentBootstrap } from '../../../bin/environment.js';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 const defaultEg = {
   exit () {},
   get config () {
-    return require('../../../lib/config');
+    const cfg = require('../../../lib/config');
+    return cfg.default || cfg;
   },
   get services () {
-    return require('../../../lib/services');
+    const svc = require('../../../lib/services');
+    return svc.default || svc;
   }
 };
 
-exports.bootstrap = (eg, adapter) => {
+export const bootstrap = (eg, adapter) => {
   eg = eg || defaultEg;
   adapter = adapter || new TestAdapter();
 
-  const { program, env } = environment.bootstrap(eg, adapter);
+  const { program, env } = environmentBootstrap(eg, adapter);
 
   if (!env.hasOwnProperty('_originalCreate')) {
     env._originalCreate = env.create;

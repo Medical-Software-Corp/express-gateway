@@ -1,5 +1,5 @@
-const fp = require('find-free-port');
-const express = require('express');
+import fp from 'find-free-port';
+import express from 'express';
 
 const generateBackendServer = port => {
   const app = express();
@@ -22,7 +22,7 @@ const findOpenPortNumbers = function (count = 1) {
   return fp(3000, 3100, '127.0.0.1', count);
 };
 
-module.exports = {
+export default {
   generateBackendServer,
   findOpenPortNumbers
 };

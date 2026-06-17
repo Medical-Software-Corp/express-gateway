@@ -1,4 +1,4 @@
-module.exports = function (client) {
+export default function (client) {
   const baseUrl = '/schemas/';
   return {
     list (param = '') {
@@ -13,4 +13,4 @@ module.exports = function (client) {
         .then(res => res.body);
     }
   };
-};
+}

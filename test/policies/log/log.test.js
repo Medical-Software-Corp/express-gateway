@@ -1,8 +1,9 @@
-const logPolicy = require('../../../lib/policies/log').policy;
-const EgContextBase = require('../../../lib/gateway/context');
-const logger = require('../../../lib/policies/log/instance');
-const sinon = require('sinon');
-const assert = require('assert');
+import logPolicyModule from '../../../lib/policies/log/index.js';
+const logPolicy = logPolicyModule.policy;
+import EgContextBase from '../../../lib/gateway/context.js';
+import logger from '../../../lib/policies/log/instance.js';
+import sinon from 'sinon';
+import assert from 'assert';
 
 describe('@log policy', () => {
   const res = {

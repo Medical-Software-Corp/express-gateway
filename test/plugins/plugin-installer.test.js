@@ -1,14 +1,22 @@
-const fs = require('fs');
-const path = require('path');
-const util = require('util');
+import fs from 'fs';
+import path from 'path';
+import util from 'util';
+import { createRequire } from 'module';
 
-const should = require('should');
-const cpr = require('cpr');
-const rimraf = require('rimraf');
-const tmp = require('tmp');
-const yaml = require('js-yaml');
+import should from 'should';
+import cpr from 'cpr';
+import rimraf from 'rimraf';
+import tmp from 'tmp';
+import yaml from 'js-yaml';
 
-const PluginInstaller = require('../../lib/plugin-installer');
+import PluginInstaller from '../../lib/plugin-installer.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const require = createRequire(import.meta.url);
+
 const PACKAGE_NAME = 'express-gateway-plugin-test';
 
 const gatewayDirectory = path.join(__dirname, '../../lib/config');

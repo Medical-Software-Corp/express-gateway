@@ -1,9 +1,9 @@
-const session = require('supertest-session');
-const should = require('should');
+import session from 'supertest-session';
+import should from 'should';
 
-const app = require('./bootstrap');
-const services = require('../../lib/services');
-const { checkTokenResponse, createOAuthScenario } = require('./testUtils');
+import app from './bootstrap.js';
+import services from '../../lib/services.js';
+import { checkTokenResponse, createOAuthScenario } from './testUtils.js';
 
 const tokenService = services.token;
 

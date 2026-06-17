@@ -1,7 +1,7 @@
-const testHelper = require('../common/routing.helper');
-const sinon = require('sinon');
-const assert = require('assert');
-const Config = require('../../lib/config/config');
+import testHelper from '../common/routing.helper.js';
+import sinon from 'sinon';
+import assert from 'assert';
+import Config from '../../lib/config/config.js';
 const config = new Config();
 
 // there are several configuration ways to listen to all hosts

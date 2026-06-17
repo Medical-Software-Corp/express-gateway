@@ -1,7 +1,7 @@
-const eg = require('../../eg');
+import { Generator } from '../../eg.js';
 const SCHEMA = 'http://express-gateway.io/models/users.json';
 
-module.exports = class extends eg.Generator {
+export default class extends Generator {
   constructor (args, opts) {
     super(args, opts);
 
@@ -124,4 +124,4 @@ module.exports = class extends eg.Generator {
         this.log.error((err.response && err.response.error && err.response.error.text) || err.message);
       });
   }
-};
+}

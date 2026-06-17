@@ -1,7 +1,7 @@
-const should = require('should');
-const gateway = require('../../lib/gateway');
-const Config = require('../../lib/config/config');
-const testHelper = require('../common/routing.helper');
+import should from 'should';
+import gateway from '../../lib/gateway.js';
+import Config from '../../lib/config/config.js';
+import testHelper from '../common/routing.helper.js';
 
 const config = new Config();
 config.gatewayConfig = {

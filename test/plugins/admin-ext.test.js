@@ -1,7 +1,7 @@
-const assert = require('assert');
-const admin = require('../../lib/rest');
-const eventBus = require('../../lib/eventBus');
-const request = require('supertest');
+import assert from 'assert';
+import admin from '../../lib/rest.js';
+import eventBus from '../../lib/eventBus.js';
+import request from 'supertest';
 describe('admin with plugins', () => {
   let adminSrv, adminSrvFromEvent;
   before('fires up a new admin instance', function () {

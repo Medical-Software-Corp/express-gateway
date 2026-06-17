@@ -1,4 +1,4 @@
-module.exports = function (client) {
+export default function (client) {
   const baseUrl = '/policies/';
   return {
     activate (name) {
@@ -19,4 +19,4 @@ module.exports = function (client) {
         .then(res => res.body);
     }
   };
-};
+}

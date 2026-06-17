@@ -1,12 +1,12 @@
-const serverHelper = require('../common/server-helper');
-const should = require('should');
-const config = require('../../lib/config');
-const request = require('supertest');
+import serverHelper from '../common/server-helper.js';
+import should from 'should';
+import config from '../../lib/config.js';
+import request from 'supertest';
 const port1 = 5998;
 const port2 = 5999;
 let app1, app2, appTarget;
 
-const gateway = require('../../lib/gateway');
+import gateway from '../../lib/gateway.js';
 
 describe('multi step policy ', () => {
   let originalGatewayConfig;

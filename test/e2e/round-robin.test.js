@@ -1,11 +1,11 @@
-const should = require('should');
-const request = require('superagent');
-const fs = require('fs');
-const path = require('path');
-const yaml = require('js-yaml');
+import should from 'should';
+import request from 'superagent';
+import fs from 'fs';
+import path from 'path';
+import yaml from 'js-yaml';
 
-const cliHelper = require('../common/cli.helper');
-const gwHelper = require('../common/gateway.helper');
+import cliHelper from '../common/cli.helper.js';
+import gwHelper from '../common/gateway.helper.js';
 
 describe('round-robin load @balancing @proxy', () => {
   let gatewayConfig, gatewayProcess, backendServers, gatewayPort;

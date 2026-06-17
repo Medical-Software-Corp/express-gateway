@@ -5,7 +5,7 @@
 
 // capture terminal output, so that we might
 // assert against it.
-exports.checkOutput = function (f, argv, cb) {
+export const checkOutput = function (f, argv, cb) {
   let exit = false;
   const _exit = process.exit;
   const _emit = process.emit;

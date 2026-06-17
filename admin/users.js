@@ -1,4 +1,4 @@
-module.exports = function (client) {
+export default function (client) {
   const baseUrl = '/users/';
   return {
     create (user) {
@@ -59,4 +59,4 @@ module.exports = function (client) {
     }
 
   };
-};
+}

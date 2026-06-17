@@ -1,6 +1,7 @@
-const assert = require('assert');
-const adminHelper = require('../../common/admin-helper')();
-const environment = require('../../fixtures/cli/environment');
+import assert from 'assert';
+import adminHelperFactory from '../../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
+import environment from '../../fixtures/cli/environment.js';
 const namespace = 'express-gateway:scopes:list';
 
 describe('eg scopes list [no scopes]', () => {

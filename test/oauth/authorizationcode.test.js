@@ -1,11 +1,11 @@
-const session = require('supertest-session');
-const should = require('should');
-const url = require('url');
-const qs = require('querystring');
+import session from 'supertest-session';
+import should from 'should';
+import url from 'url';
+import qs from 'querystring';
 
-const app = require('./bootstrap');
-const services = require('../../lib/services');
-const { checkTokenResponse, createOAuthScenario } = require('./testUtils');
+import app from './bootstrap.js';
+import services from '../../lib/services.js';
+import { checkTokenResponse, createOAuthScenario } from './testUtils.js';
 
 const tokenService = services.token;
 
@@ -227,7 +227,7 @@ describe('Functional Test Authorization Code grant', function () {
   });
 
   it('should not grant access token if code is expired', function (done) {
-    const config = require('../../lib/config');
+    import config from '../../lib/config.js';
     config.systemConfig.authorizationCodes.timeToExpiry = 0;
     const request = session(app);
     request

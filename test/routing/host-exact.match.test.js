@@ -1,5 +1,5 @@
-const testHelper = require('../common/routing.helper');
-const config = require('../../lib/config');
+import testHelper from '../common/routing.helper.js';
+import config from '../../lib/config.js';
 
 describe('exact host name configuration host:acme.com paths:default(*)', () => {
   const helper = testHelper();

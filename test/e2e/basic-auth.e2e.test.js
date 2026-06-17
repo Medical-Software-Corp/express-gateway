@@ -1,6 +1,6 @@
-const cliHelper = require('../common/cli.helper');
-const gwHelper = require('../common/gateway.helper');
-const request = require('supertest');
+import cliHelper from '../common/cli.helper.js';
+import gwHelper from '../common/gateway.helper.js';
+import request from 'supertest';
 let gatewayPort, adminPort, configDirectoryPath, gatewayProcess, backendServer;
 const username = 'test';
 const proxyPolicy = {

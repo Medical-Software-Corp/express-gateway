@@ -1,8 +1,8 @@
-const should = require('should');
-const config = require('../../lib/config');
-const services = require('../../lib/services');
+import should from 'should';
+import config from '../../lib/config.js';
+import services from '../../lib/services.js';
 const tokenService = services.token;
-const db = require('../../lib/db');
+import db from '../../lib/db.js';
 
 describe('Access Token tests', function () {
   describe('Save, Find and Get Access Token tests', function () {

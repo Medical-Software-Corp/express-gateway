@@ -1,16 +1,19 @@
-const Generator = require('yeoman-generator');
-const chalk = require('chalk');
-const config = require('../lib/config');
-const { validate, find } = require('../lib/schemas');
+import Generator from 'yeoman-generator';
+import chalk from 'chalk';
+import config from '../lib/config/index.js';
+import schemas from '../lib/schemas/index.js';
+import createAdminClient from '../admin/index.js';
 
-module.exports = class EgGenerator extends Generator {
+const { validate, find } = schemas;
+
+export default class EgGenerator extends Generator {
   constructor (args, opts) {
     super(args, opts);
 
     this._configuration = null;
     this.eg = this.env.eg;
     this.argv = this.env.argv;
-    this.admin = require('../admin')({
+    this.admin = createAdminClient({
       baseUrl: this._getAdminClientBaseURL(),
       verbose: this._getAdminClientVerboseFlag(),
       headers: this.argv && this.argv.H ? this.processHeaders(this.argv.H) : null
@@ -171,4 +174,4 @@ module.exports = class EgGenerator extends Generator {
       return validateData(object);
     });
   }
-};
+}

@@ -1,18 +1,19 @@
-const idGen = require('uuid62');
-const request = require('supertest');
-const should = require('should');
-const jwt = require('jsonwebtoken');
+import idGen from 'uuid62';
+import request from 'supertest';
+import should from 'should';
+import jwt from 'jsonwebtoken';
 
-const db = require('../../../lib/db');
+import db from '../../../lib/db.js';
 
-const services = require('../../../lib/services');
+import services from '../../../lib/services.js';
 const credentialService = services.credential;
 const userService = services.user;
 const appService = services.application;
 
-const serverHelper = require('../../common/server-helper');
-const config = require('../../../lib/config');
-const testHelper = require('../../common/routing.helper')();
+import serverHelper from '../../common/server-helper.js';
+import config from '../../../lib/config.js';
+import testHelperFactory from '../../common/routing.helper.js';
+const testHelper = testHelperFactory();
 
 const originalGatewayConfig = JSON.parse(JSON.stringify(config.gatewayConfig));
 const originalSystemConfig = JSON.parse(JSON.stringify(config.systemConfig));

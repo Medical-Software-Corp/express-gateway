@@ -1,8 +1,8 @@
-const assert = require('assert');
-const gateway = require('../../lib/gateway');
-const eventBus = require('../../lib/eventBus');
-const Config = require('../../lib/config/config');
-const request = require('supertest');
+import assert from 'assert';
+import gateway from '../../lib/gateway.js';
+import eventBus from '../../lib/eventBus.js';
+import Config from '../../lib/config/config.js';
+import request from 'supertest';
 
 const config = new Config();
 config.loadGatewayConfig();

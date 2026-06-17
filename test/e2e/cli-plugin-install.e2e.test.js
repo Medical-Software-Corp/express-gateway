@@ -1,18 +1,23 @@
-const fs = require('fs');
-const path = require('path');
-const util = require('util');
+import fs from 'fs';
+import path from 'path';
+import util from 'util';
 
-const should = require('should');
-const cpr = require('cpr');
-const rimraf = require('rimraf');
-const tmp = require('tmp');
-const yaml = require('js-yaml');
+import should from 'should';
+import cpr from 'cpr';
+import rimraf from 'rimraf';
+import tmp from 'tmp';
+import yaml from 'js-yaml';
+import { runCLICommand } from '../common/cli.helper.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const PACKAGE_NAME = 'express-gateway-plugin-test';
 
 const gatewayDirectory = path.join(__dirname, '../../lib/config');
 const pluginDirectory = path.join(__dirname, '../fixtures', PACKAGE_NAME);
-const { runCLICommand } = require('../common/cli.helper');
 
 let tempPath = null;
 

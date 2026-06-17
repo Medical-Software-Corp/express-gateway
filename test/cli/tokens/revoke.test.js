@@ -1,11 +1,13 @@
-const assert = require('assert');
-const request = require('supertest');
-const app = require('../../oauth/bootstrap');
-const environment = require('../../fixtures/cli/environment');
-const adminHelper = require('../../common/admin-helper')();
+import assert from 'assert';
+import request from 'supertest';
+import app from '../../oauth/bootstrap.js';
+import environment from '../../fixtures/cli/environment.js';
+import adminHelperFactory from '../../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
 const namespace = 'express-gateway:tokens:revoke';
-const idGen = require('uuid62');
-const authService = require('../../../lib/services').auth;
+import idGen from 'uuid62';
+import services from '../../../lib/services.js';
+const authService = services.auth;
 
 describe('eg tokens revoke', () => {
   let program, env, user, accessToken;

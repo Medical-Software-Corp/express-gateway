@@ -1,20 +1,20 @@
-const session = require('supertest-session');
-const should = require('should');
-const qs = require('querystring');
-const url = require('url');
-const express = require('express');
-const sinon = require('sinon');
-const assert = require('assert');
+import session from 'supertest-session';
+import should from 'should';
+import qs from 'querystring';
+import url from 'url';
+import express from 'express';
+import sinon from 'sinon';
+import assert from 'assert';
 
-const logger = require('../../lib/policies/log/instance');
-const services = require('../../lib/services');
+import logger from '../../lib/policies/log/instance.js';
+import services from '../../lib/services.js';
 const credentialService = services.credential;
 const userService = services.user;
 const applicationService = services.application;
-const db = require('../../lib/db');
+import db from '../../lib/db.js';
 
-const testHelper = require('../common/routing.helper');
-const config = require('../../lib/config');
+import testHelper from '../common/routing.helper.js';
+import config from '../../lib/config.js';
 const originalGatewayConfig = config.gatewayConfig;
 
 describe('E2E: oauth2, proxy, log, expression, rate-limit policies', () => {

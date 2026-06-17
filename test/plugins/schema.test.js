@@ -1,7 +1,14 @@
-const path = require('path');
-const should = require('should');
+import path from 'path';
+import should from 'should';
+import { createRequire } from 'module';
 
-const pluginsLoader = require('../../lib/plugins');
+import pluginsLoader from '../../lib/plugins.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const require = createRequire(import.meta.url);
 
 // Caching fixture plugin, but redefining its properties for testing plugin load.
 const pluginName = 'express-gateway-plugin-test';

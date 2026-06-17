@@ -1,6 +1,7 @@
-const expressionPolicy = require('../../../lib/policies/expression').policy;
-const EgContextBase = require('../../../lib/gateway/context');
-const assert = require('assert');
+import expressionPolicyModule from '../../../lib/policies/expression/index.js';
+const expressionPolicy = expressionPolicyModule.policy;
+import EgContextBase from '../../../lib/gateway/context.js';
+import assert from 'assert';
 
 describe('expression action', () => {
   const res = {

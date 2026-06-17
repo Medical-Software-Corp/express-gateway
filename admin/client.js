@@ -1,7 +1,8 @@
-const superagent = require('superagent');
-const superagentPrefix = require('superagent-prefix');
+import superagent from 'superagent';
+import superagentPrefix from 'superagent-prefix';
+import superagentLogger from 'superagent-logger';
 
-module.exports = ({ baseUrl, verbose, headers }) => {
+export default ({ baseUrl, verbose, headers }) => {
   const agent = superagent
     .agent()
     .use(superagentPrefix(baseUrl));
@@ -11,7 +12,7 @@ module.exports = ({ baseUrl, verbose, headers }) => {
   }
 
   if (verbose) {
-    agent.use(require('superagent-logger'));
+    agent.use(superagentLogger);
   }
 
   return agent;

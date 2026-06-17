@@ -1,8 +1,9 @@
-const assert = require('assert');
-const environment = require('../../fixtures/cli/environment');
-const adminHelper = require('../../common/admin-helper')();
+import assert from 'assert';
+import environment from '../../fixtures/cli/environment.js';
+import adminHelperFactory from '../../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
 const namespace = 'express-gateway:credential-scopes:set';
-const idGen = require('uuid62');
+import idGen from 'uuid62';
 
 describe('eg credential:scopes set', () => {
   let program, env, user, cred1, scope1, scope2, scope3;

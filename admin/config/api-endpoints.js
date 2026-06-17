@@ -1,4 +1,4 @@
-module.exports = function (client) {
+export default function (client) {
   const baseUrl = '/api-endpoints/';
   return {
     create (name, endpointConfig) {
@@ -27,4 +27,4 @@ module.exports = function (client) {
     }
 
   };
-};
+}

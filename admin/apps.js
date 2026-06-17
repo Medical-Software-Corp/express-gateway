@@ -1,4 +1,4 @@
-module.exports = function (client) {
+export default function (client) {
   const baseUrl = '/apps/';
   return {
     create (userId, app) {
@@ -61,4 +61,4 @@ module.exports = function (client) {
     }
 
   };
-};
+}

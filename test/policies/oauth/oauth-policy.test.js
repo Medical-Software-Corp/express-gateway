@@ -1,15 +1,15 @@
-const session = require('supertest-session');
-const should = require('should');
+import session from 'supertest-session';
+import should from 'should';
 
-const services = require('../../../lib/services/index');
+import services from '../../../lib/services/index.js';
 const credentialService = services.credential;
 const userService = services.user;
 const applicationService = services.application;
-const serverHelper = require('../../common/server-helper');
-const db = require('../../../lib/db');
+import serverHelper from '../../common/server-helper.js';
+import db from '../../../lib/db.js';
 
-const testHelper = require('../../common/routing.helper');
-const config = require('../../../lib/config');
+import testHelper from '../../common/routing.helper.js';
+import config from '../../../lib/config.js';
 const originalGatewayConfig = config.gatewayConfig;
 
 describe('Functional Tests oAuth2.0 Policy', () => {

@@ -1,6 +1,8 @@
-const rest = require('../../lib/rest');
-const adminClient = require('../../admin');
-module.exports = function () {
+import rest from '../../lib/rest/index.js';
+import adminClient from '../../admin/index.js';
+import db from '../../lib/db.js';
+
+export default function () {
   return {
     start ({ config } = {}) {
       return rest({ config }).then((srv) => {
@@ -17,8 +19,7 @@ module.exports = function () {
       return this.reset();
     },
     reset () {
-      const db = require('../../lib/db');
       return db.flushdb();
     }
   };
-};
+}

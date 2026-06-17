@@ -1,10 +1,11 @@
-const assert = require('assert');
-const PassThrough = require('stream').PassThrough;
-const util = require('util');
-const helpers = require('yeoman-test');
-const adminHelper = require('../../common/admin-helper')();
-const idGen = require('uuid62');
-const environment = require('../../fixtures/cli/environment');
+import assert from 'assert';
+import { PassThrough } from 'stream';
+import util from 'util';
+import helpers from 'yeoman-test';
+import adminHelperFactory from '../../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
+import idGen from 'uuid62';
+import environment from '../../fixtures/cli/environment.js';
 const namespace = 'express-gateway:users:create';
 
 describe('eg users create', () => {

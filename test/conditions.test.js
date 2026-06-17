@@ -1,7 +1,7 @@
-const EgContextBase = require('../lib/gateway/context');
-const { init, conditions } = require('../lib/conditions');
-const express = require('express');
-const should = require('should');
+import EgContextBase from '../lib/gateway/context.js';
+import { init, conditions } from '../lib/conditions.js';
+import express from 'express';
+import should from 'should';
 
 describe('conditions', () => {
   before(init);

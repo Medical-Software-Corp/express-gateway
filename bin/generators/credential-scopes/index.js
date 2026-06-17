@@ -1,6 +1,6 @@
-const eg = require('../../eg');
+import { Generator } from '../../eg.js';
 
-module.exports = class extends eg.Generator {
+export default class extends Generator {
   constructor (args, opts) {
     super(args, opts);
 
@@ -8,7 +8,6 @@ module.exports = class extends eg.Generator {
       command: ['credential:scopes <command> [options]', 'credential:scope'],
       desc: 'Manage scopes for credentials',
       builder: yargs => yargs
-        .reset()
         .usage('Usage: $0 ' + process.argv[2] + ' <command> [options]')
         .command(this.createSubCommand('add'))
         .command(this.createSubCommand('remove'))
@@ -16,4 +15,4 @@ module.exports = class extends eg.Generator {
         .demandCommand()
     });
   }
-};
+}

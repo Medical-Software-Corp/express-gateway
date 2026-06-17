@@ -1,5 +1,6 @@
-const should = require('should');
-const adminHelper = require('../common/admin-helper')();
+import should from 'should';
+import adminHelperFactory from '../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
 
 describe('REST: Credentials', () => {
   before(() => adminHelper.start({

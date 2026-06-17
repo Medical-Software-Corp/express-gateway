@@ -1,12 +1,13 @@
-const should = require('should');
-const os = require('os');
-const fs = require('fs');
-const path = require('path');
-const idGen = require('uuid62');
-const yaml = require('js-yaml');
-const gateway = require('../../lib/gateway');
-const adminHelper = require('../common/admin-helper')();
-const Config = require('../../lib/config/config');
+import should from 'should';
+import os from 'os';
+import fs from 'fs';
+import path from 'path';
+import idGen from 'uuid62';
+import yaml from 'js-yaml';
+import gateway from '../../lib/gateway.js';
+import adminHelperFactory from '../common/admin-helper.js';
+const adminHelper = adminHelperFactory();
+import Config from '../../lib/config/config.js';
 
 describe('REST: schemas', () => {
   let config;

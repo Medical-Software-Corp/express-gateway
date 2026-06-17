@@ -1,27 +1,34 @@
-const yaml = require('js-yaml');
-const fs = require('fs');
-const { fork } = require('child_process');
-const path = require('path');
-const request = require('superagent');
-const util = require('util');
-const _cpr = util.promisify(require('cpr'));
-const { generateBackendServer, findOpenPortNumbers } = require('../common/server-helper');
+import yaml from 'js-yaml';
+import fs from 'fs';
+import { fork } from 'child_process';
+import path from 'path';
+import request from 'superagent';
+import util from 'util';
+import cpr from 'cpr';
+import { generateBackendServer, findOpenPortNumbers } from '../common/server-helper.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const _cpr = util.promisify(cpr);
 let gatewayPort = null;
 let adminPort = null;
 let backendPorts = null;
 
 // Set gateway.config or system.config yml files
-module.exports.setYmlConfig = function ({ ymlConfigPath, newConfig }) {
+export const setYmlConfig = function ({ ymlConfigPath, newConfig }) {
   fs.writeFileSync(ymlConfigPath, yaml.dump(newConfig));
 };
 
 // Get config by path (gateway.config.yml or system.config.yml)
-module.exports.getYmlConfig = function ({ ymlConfigPath }) {
+export const getYmlConfig = function ({ ymlConfigPath }) {
   const content = fs.readFileSync();
   return yaml.load(content);
 };
 
-module.exports.startGatewayInstance = function ({ dirInfo, gatewayConfig, backendServers = 1 }) {
+export const startGatewayInstance = function ({ dirInfo, gatewayConfig, backendServers = 1 }) {
   return findOpenPortNumbers(2 + backendServers)
     .then(ports => {
       gatewayPort = ports.shift();

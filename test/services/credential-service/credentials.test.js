@@ -1,10 +1,10 @@
-const should = require('should');
-const config = require('../../../lib/config');
-const services = require('../../../lib/services');
-const schemas = require('../../../lib/schemas');
+import should from 'should';
+import config from '../../../lib/config.js';
+import services from '../../../lib/services.js';
+import schemas from '../../../lib/schemas.js';
 const credentialService = services.credential;
 const userService = services.user;
-const db = require('../../../lib/db');
+import db from '../../../lib/db.js';
 
 describe('Credential tests', () => {
   const username = 'someUser';

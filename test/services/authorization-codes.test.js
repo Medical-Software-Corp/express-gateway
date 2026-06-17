@@ -1,7 +1,7 @@
-const should = require('should');
-const services = require('../../lib/services');
+import should from 'should';
+import services from '../../lib/services.js';
 const authCodeService = services.authorizationCode;
-const db = require('../../lib/db');
+import db from '../../lib/db.js';
 
 describe('Authorization Code Tests', function () {
   let newCode, codeFromDb;
